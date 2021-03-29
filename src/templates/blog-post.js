@@ -36,7 +36,20 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+
+        <form
+          name="comment-form"
+          method="post"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="comment-form" />
+          <input type="hidden" name="slug" value={this.props.pageContext.slug} />
+          // Add name input
+          // Add comment input
+          // I also added a checkbox for gdpr consent
+          // Can be omitted, but you may need to adapt other things later
+          // Workaround:  just add a hidden input that is always true ;)
+        </form>
 
         <ul
           style={{
@@ -88,4 +101,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+  `
