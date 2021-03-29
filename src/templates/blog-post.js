@@ -37,18 +37,19 @@ class BlogPostTemplate extends React.Component {
           }}
         />
 
-        <form
-          name="comment-form"
-          method="post"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="comment-form" />
-          <input type="hidden" name="slug" value={this.props.pageContext.slug} />
-          // Add name input
-          // Add comment input
-          // I also added a checkbox for gdpr consent
-          // Can be omitted, but you may need to adapt other things later
-          // Workaround:  just add a hidden input that is always true ;)
+        <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+          <p className="hidden">
+            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+          </p>
+          <p>
+            <label>Email: <input type="text" name="email" /></label>
+          </p>
+          <p>
+            <label>Message: <textarea name="message"></textarea></label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
         </form>
 
         <ul
