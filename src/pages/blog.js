@@ -17,7 +17,6 @@ class Blog extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
         <SearchPosts
           posts={posts}
           localSearchBlog={localSearchBlog}
@@ -27,6 +26,8 @@ class Blog extends React.Component {
         <Link to="/">
           <Button marginTop="85px">Go Home</Button>
         </Link>
+
+        <Bio />
       </Layout>
     )
   }
